@@ -14,3 +14,5 @@ Video.create(title: 'Family Guy', description: 'A hilarious show about a disorde
 Video.create(title: 'Monk', description: 'An emotionally damaged detective solves the most intractable crimes', small_cover_url: "monk")
 Video.create(title: 'South Park', description: 'The kids from South Park are back for more shenanigans', small_cover_url: "south_park")
 Video.create(title: 'Futurama', description: 'A space comedy of ingenious design', small_cover_url: "futurama")
+Video.create(title: 'South Park', description: 'The kids from South Park are back for more shenanigans', small_cover_url: "south_park")
+Video.create(title: 'South Park', description: 'The kids from South Park are back for more shenanigans', small_cover_url: "south_park")
