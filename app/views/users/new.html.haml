@@ -1,0 +1,13 @@
+%section.register.container
+  .row
+    .col-sm-10.col-sm-offset-1
+      = bootstrap_form_for @user, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-6' do |f|
+        %header 
+          %h1 Register
+        %fieldset
+          = f.text_field :email, label: 'Email Address', placeholder: 'john@example.com'
+          = f.password_field :password, label_class: "control-label col-sm-2"
+          = f.password_field :full_name, label_class: "control-label col-sm-2"
+        %fieldset.actions.control-group
+          .controls
+            %input(type="submit" value="Sign Up" class="btn btn-default")
