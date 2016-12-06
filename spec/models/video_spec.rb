@@ -3,7 +3,9 @@ require 'spec_helper'
 describe Video do 
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }
+  it { should have_many(:reviews).order('created_at DESC') }
   it { should belong_to :category }
+  it { should have_many :queue_items }
 
   describe "search_by_title" do 
     it "returns an array containing a matching title for an exact match" do 
@@ -46,6 +48,42 @@ describe Video do
       godfather3 = Fabricate(:video, title: "The Godfather III")
       results = Video.search_by_title("Godfather")
       expect(results).to eq([godfather2, godfather1, godfather3])
+    end
+  end
+
+  describe '#rating' do 
+    it "returns nil if the video has no reviews" do 
+      video = Fabricate(:video)
+      expect(video.rating).to be_nil
+    end
+    
+    it "returns the reviews rating if there is one review" do 
+      video = Fabricate(:video)
+      review = Fabricate(:review, video: video)
+      expect(video.rating).to eq(review.rating)
+    end
+
+    it "returns the average of multiple reviews" do 
+      video = Fabricate(:video)
+      Fabricate(:review, video: video, rating: 3, user: Fabricate(:user) )
+      Fabricate(:review, video: video, rating: 5, user: Fabricate(:user) )
+      expect(video.rating).to eq(4.0)
+    end
+  end
+
+  describe '#already_in_queue?' do 
+    
+    it 'returns false if the video is not in the users queue' do 
+      andy = Fabricate(:user)
+      video = Fabricate(:video)
+      expect(video.already_in_queue?(andy)).to be_falsey
+    end
+    
+    it 'returns true if the video is in the users queue' do 
+      andy = Fabricate(:user)
+      video = Fabricate(:video)
+      Fabricate(:queue_item, user: andy, video: video)
+      expect(video.already_in_queue?(andy)).to be_truthy
     end
   end
 end

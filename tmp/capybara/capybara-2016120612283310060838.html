@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+<title>MyFLiX - a video on demand service</title>
+<meta charset='UTF-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+
+<link href="/assets/application.css" media="screen" rel="stylesheet" />
+<script src="/assets/application.js"></script>
+</head>
+<body>
+<header>
+<section class='row' id='top-header'>
+<h1 class='col-md-2'>
+<a href="/">MyFLiX</a>
+</h1>
+<ul class='col-md-4 clearfix'>
+<li><a href="/home">Videos</a></li>
+<li><a href="/my_queue">My Queue</a></li>
+<li><a href="/my_queue">People</a></li>
+</ul>
+<form accept-charset="UTF-8" action="/videos/search" class="col-md-5 navbar-form" method="get"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<div class='form-group'>
+<input class="form-control" id="search_term" name="search_term" placeholder="Enter search term" type="text" />
+</div>
+<button class='btn btn-default' type='submit'>Search</button>
+</form>
+
+<div class='pull-right' id='user_links'>
+<ul>
+<li class='dropdown'>
+<a class='dropdown-toggle' data-target='#' data-toggle='dropdown' href='#' id='dlabel' role='button'>
+Welcome, Theresia Stamm
+<b class='caret'></b>
+</a>
+<ul aria-labelledby='dlabel' class='dropdown-menu' role='menu'>
+<li>
+<a href='#'>Account</a>
+<a href='#'>Plan and Billing</a>
+<a href="/sign_out">Sign Out</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+</header>
+<section class='content clearfix'>
+
+<section class='my_queue container'>
+<div class='row'>
+<div class='col-sm-10 col-sm-offset-1'>
+<article>
+<header>
+<h2>My Queue</h2>
+</header>
+<form accept-charset="UTF-8" action="/update_queue" id="update_queue_form" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<table class='table'>
+<thead>
+<tr>
+<th width='10%'>List Order</th>
+<th width='30%'>Video Title</th>
+<th width='10%'>Play</th>
+<th width='20%'>Rating</th>
+<th width='15%'>Genre</th>
+<th width='15%'>Remove</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<input id="queue_items__id" name="queue_items[][id]" type="hidden" value="1616" />
+<input class="form-control" data-video-id="1056" id="queue_items__position" name="queue_items[][position]" type="text" value="1" />
+</td>
+<td>
+<a href="/videos/1056">die hard</a>
+</td>
+<td>
+<form action="/my_queue" class="button_to" method="post"><div><input class="btn btn-default" type="submit" value="Play" /></div></form>
+</td>
+<td>
+<select class="form-group" id="queue_items__rating" name="queue_items[][rating]"><option value=""></option><option value="1">1 Star</option>
+<option value="2">2 Stars</option>
+<option value="3">3 Stars</option>
+<option value="4">4 Stars</option>
+<option value="5">5 Stars</option></select>
+</td>
+<td>
+<a href="/categories/80">/categories/80</a>
+</td>
+<td>
+<a data-method="delete" href="/queue_items/1616" rel="nofollow"><i class='glyphicon glyphicon-remove'></i>
+</a></td>
+</tr>
+<tr>
+<td>
+<input id="queue_items__id" name="queue_items[][id]" type="hidden" value="1617" />
+<input class="form-control" data-video-id="1057" id="queue_items__position" name="queue_items[][position]" type="text" value="2" />
+</td>
+<td>
+<a href="/videos/1057">nulla veniam porro</a>
+</td>
+<td>
+<form action="/my_queue" class="button_to" method="post"><div><input class="btn btn-default" type="submit" value="Play" /></div></form>
+</td>
+<td>
+<select class="form-group" id="queue_items__rating" name="queue_items[][rating]"><option value=""></option><option value="1">1 Star</option>
+<option value="2">2 Stars</option>
+<option value="3">3 Stars</option>
+<option value="4">4 Stars</option>
+<option value="5">5 Stars</option></select>
+</td>
+<td>
+<a href="/categories/80">/categories/80</a>
+</td>
+<td>
+<a data-method="delete" href="/queue_items/1617" rel="nofollow"><i class='glyphicon glyphicon-remove'></i>
+</a></td>
+</tr>
+<tr>
+<td>
+<input id="queue_items__id" name="queue_items[][id]" type="hidden" value="1618" />
+<input class="form-control" data-video-id="1058" id="queue_items__position" name="queue_items[][position]" type="text" value="3" />
+</td>
+<td>
+<a href="/videos/1058">placeat maiores exercitationem</a>
+</td>
+<td>
+<form action="/my_queue" class="button_to" method="post"><div><input class="btn btn-default" type="submit" value="Play" /></div></form>
+</td>
+<td>
+<select class="form-group" id="queue_items__rating" name="queue_items[][rating]"><option value=""></option><option value="1">1 Star</option>
+<option value="2">2 Stars</option>
+<option value="3">3 Stars</option>
+<option value="4">4 Stars</option>
+<option value="5">5 Stars</option></select>
+</td>
+<td>
+<a href="/categories/80">/categories/80</a>
+</td>
+<td>
+<a data-method="delete" href="/queue_items/1618" rel="nofollow"><i class='glyphicon glyphicon-remove'></i>
+</a></td>
+</tr>
+</tbody>
+</table>
+</form>
+
+<input class="btn btn-default" name="commit" type="submit" value="Update Instant Queue" />
+</article>
+</div>
+</div>
+</section>
+
+</section>
+<footer>
+&copy 2013 MyFLiX
+</footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+<title>MyFLiX - a video on demand service</title>
+<meta charset='UTF-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+
+<link href="/assets/application.css" media="screen" rel="stylesheet" />
+<script src="/assets/application.js"></script>
+</head>
+<body>
+<header>
+<section class='row' id='top-header'>
+<h1 class='col-md-2'>
+<a href="/">MyFLiX</a>
+</h1>
+<ul class='col-md-4 clearfix'>
+<li><a href="/home">Videos</a></li>
+<li><a href="/my_queue">My Queue</a></li>
+<li><a href="/videos/893">People</a></li>
+</ul>
+<form accept-charset="UTF-8" action="/videos/search" class="col-md-5 navbar-form" method="get"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<div class='form-group'>
+<input class="form-control" id="search_term" name="search_term" placeholder="Enter search term" type="text" />
+</div>
+<button class='btn btn-default' type='submit'>Search</button>
+</form>
+
+<div class='pull-right' id='user_links'>
+<ul>
+<li class='dropdown'>
+<a class='dropdown-toggle' data-target='#' data-toggle='dropdown' href='#' id='dlabel' role='button'>
+Welcome, Miss Virgie Luettgen
+<b class='caret'></b>
+</a>
+<ul aria-labelledby='dlabel' class='dropdown-menu' role='menu'>
+<li>
+<a href='#'>Account</a>
+<a href='#'>Plan and Billing</a>
+<a href="/sign_out">Sign Out</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+</header>
+<section class='content clearfix'>
+
+<article class='video'>
+<div class='container'>
+<div class='row'>
+<div class='video_large_cover col-sm-7 col-sm-offset-1'>
+<img src='http://dummyimage.com/665x375/000000/00a2ff'>
+</div>
+<div class='video_info col-sm-3'>
+<header>
+<h3>libero sit quo</h3>
+<span>Rating: /5.0</span>
+</header>
+<p>Similique sed voluptas vero veritatis sit id. Repudiandae distinctio qui ut porro tenetur. Id sit deserunt non. Vel delectus architecto labore rerum tenetur. Necessitatibus illo autem consequatur ut suscipit occaecati nemo.Optio neque tempore id necessitatibus pariatur molestiae quisquam. Labore sit eveniet. Aliquid est architecto maiores qui quo iste quis. Dolores quia sed voluptatem aliquid corporis.</p>
+<div class='actions'>
+<a class='btn btn-primary' href=''>Watch Now</a>
+<a class="btn btn-default" data-method="post" href="/queue_items?video_id=893" rel="nofollow">+ My Queue</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<section class='reviews container'>
+<div class='row'>
+<div class='col-sm-10 col-sm-offset-1'>
+<form accept-charset="UTF-8" action="/videos/893/reviews" class="new_review" id="new_review" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div><fieldset>
+<div class='form-group'>
+<label for="rating">Rate this video</label>
+<div class='row'>
+<div class='col-sm-3'>
+<select class="form-control" id="review_rating" name="review[rating]"><option value="1">1 Star</option>
+<option value="2">2 Stars</option>
+<option value="3">3 Stars</option>
+<option value="4">4 Stars</option>
+<option value="5">5 Stars</option></select>
+</div>
+</div>
+</div>
+<div class='form-group'>
+<label for="body">Write Review</label>
+<div class='row'>
+<div class='col-sm-8'>
+<textarea class="form-control" id="review_body" name="review[body]" rows="6">
+</textarea>
+</div>
+</div>
+</div>
+</fieldset>
+<fieldset class='form-group actions clearfix'>
+<input class='btn' type='submit' value='Submit'>
+<a href=''>Cancel</a>
+</fieldset>
+</form>
+
+<header>
+<h3>User Reviews (0)</h3>
+</header>
+<ul>
+</ul>
+</div>
+</div>
+</section>
+
+</section>
+<footer>
+&copy 2013 MyFLiX
+</footer>
+</body>
+</html>

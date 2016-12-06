@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save 
-      flash[:notice] = "You have successfully registered #{@user.full_name}!"
+      flash[:success] = "You have successfully registered #{@user.full_name}!"
       redirect_to sign_in_path
     else 
       flash[:danger] = 'Please fill out the form correctly.'
