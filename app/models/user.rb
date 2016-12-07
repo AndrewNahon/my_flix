@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :reviews
   has_many :queue_items, -> { order('position') }
+  has_many :following_relationships, class_name: 'Relationship', foreign_key: 'follower_id'
+  has_many :followed_user_relationships, class_name: 'Relationship', foreign_key: 'followed_user_id'
   
   has_secure_password validations: false
 
@@ -16,5 +18,9 @@ class User < ActiveRecord::Base
     queue_items.each_with_index do |item, i| 
       item.update_attribute(:position, i + 1)
     end 
+  end
+
+  def following 
+    following_relationships.map(&:followed_user)
   end
 end
