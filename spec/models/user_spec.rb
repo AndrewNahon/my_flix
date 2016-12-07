@@ -34,4 +34,22 @@ describe User do
       expect(andy.reload.queue_items.map(&:position)).to eq([1, 2, 3, 4])
     end
   end
+
+  describe '#following' do 
+    it 'returns an array of users that follow the user' do 
+      andy = Fabricate(:user) 
+      bobby = Fabricate(:user)
+      cindy = Fabricate(:user)
+      dan = Fabricate(:user)
+      Relationship.create(followed_user: bobby, follower: andy)
+      Relationship.create(followed_user: cindy, follower: andy)
+      Relationship.create(followed_user: dan, follower: andy)
+      expect(andy.following).to include(bobby, cindy, dan)
+    end
+
+    it 'returns an empty array if user has no followers' do 
+      andy = Fabricate(:user) 
+      expect(andy.following).to eq([])
+    end
+  end
 end
