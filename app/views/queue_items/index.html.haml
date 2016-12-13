@@ -24,7 +24,7 @@
                   %td
                     = link_to item.video_title, video_path(item.video)
                   %td
-                    = button_to "Play", nil, class: "btn btn-default"
+                    = link_to "Play", nil, class: "btn btn-default"
                   %td
                     = select_tag 'queue_items[][rating]', options_for_select([['1 Star', 1], ['2 Stars', 2], ['3 Stars', 3], ['4 Stars', 4], ['5 Stars', 5]], item.rating), class: 'form-group', include_blank: true
                   %td
@@ -32,4 +32,4 @@
                   %td
                     = link_to queue_item_path(item), method: :delete do
                       %i.glyphicon.glyphicon-remove
-        = submit_tag 'Update Instant Queue', class: "btn btn-default"
+          = submit_tag 'Update Instant Queue', class: "btn btn-default"
