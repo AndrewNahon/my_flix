@@ -1,0 +1,7 @@
+%html
+  %body
+    %h1= "Hello, #{@invitation.friend_name}!"
+    %p You have received an invitation to join MyFlix.
+    %h4 Message
+    %p= @invitation.message
+    = link_to 'Click on this link to sign up!', register_invited_user_url(@invitation.token)

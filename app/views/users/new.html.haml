@@ -7,7 +7,7 @@
         %fieldset
           = f.text_field :email, label: 'Email Address', placeholder: 'john@example.com'
           = f.password_field :password, label_class: "control-label col-sm-2"
-          = f.password_field :full_name, label_class: "control-label col-sm-2"
+          = f.text_field :full_name, label_class: "control-label col-sm-2"
         %fieldset.actions.control-group
           .controls
             %input(type="submit" value="Sign Up" class="btn btn-default")

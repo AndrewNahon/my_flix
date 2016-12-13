@@ -15,3 +15,9 @@ dramas = Category.create(name: "Dramas")
   Video.create(title: 'South Park', description: 'The kids from South Park are back for more shenanigans', small_cover_url: "south_park", category: dramas)
   Video.create(title: 'Futurama', description: 'A space comedy of ingenious design', small_cover_url: "futurama", category: dramas)
 end
+
+andy = Fabricate(:user, full_name: "Joey Santoni")
+lucy = Fabricate(:user, full_name: "Maria Martinelli")
+
+Fabricate(:review, video: Fabricate(:video, title: 'Family Guy', description: 'A hilarious show about a disorderly family', small_cover_url: "family_guy", category: comedies), user: andy )
+Fabricate(:review, video: Fabricate(:video, title: 'Family Guy', description: 'A hilarious show about a disorderly family', small_cover_url: "family_guy", category: comedies), user: lucy )

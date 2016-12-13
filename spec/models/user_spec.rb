@@ -41,15 +41,53 @@ describe User do
       bobby = Fabricate(:user)
       cindy = Fabricate(:user)
       dan = Fabricate(:user)
-      Relationship.create(followed_user: bobby, follower: andy)
-      Relationship.create(followed_user: cindy, follower: andy)
-      Relationship.create(followed_user: dan, follower: andy)
+      Fabricate(:relationship, followed_user: bobby, follower: andy)
+      Fabricate(:relationship, followed_user: cindy, follower: andy)
+      Fabricate(:relationship, followed_user: dan, follower: andy)
       expect(andy.following).to include(bobby, cindy, dan)
     end
 
     it 'returns an empty array if user has no followers' do 
       andy = Fabricate(:user) 
       expect(andy.following).to eq([])
+    end
+  end
+
+  describe '#can_follow?' do 
+    
+    it 'returns true if the user is a another user' do 
+      andy = Fabricate(:user)
+      bobby = Fabricate(:user)
+      expect(andy.can_follow? bobby).to be_truthy
+    end
+
+    it 'returns false if the user is himself' do 
+      andy = Fabricate(:user)
+      expect(andy.can_follow?(andy)).to be_falsey
+    end
+    
+    it 'returns false if the user is already following the user' do 
+      andy = Fabricate(:user)
+      bobby = Fabricate(:user)
+      Fabricate(:relationship, followed_user: bobby, follower: andy)
+      expect(andy.can_follow?(bobby)).to be_falsey
+    end
+  end
+
+  describe '#follow' do 
+    it 'creates a following relationship with another user' do 
+      andy = Fabricate(:user)
+      bobby = Fabricate(:user)
+      andy.follow(bobby)
+      expect(Relationship.first.follower_id).to eq(andy.id)
+      expect(Relationship.first.followed_user_id).to eq(bobby.id)
+    end
+    
+    it 'does not create the relationship with an invalid user' do 
+      andy = Fabricate(:user)
+      bobby = Fabricate(:user)
+      andy.follow(andy)
+      expect(Relationship.count).to eq(0)
     end
   end
 end

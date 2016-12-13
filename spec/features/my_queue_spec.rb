@@ -34,9 +34,7 @@ feature 'my queue' do
     
     click_button "Update Instant Queue"
     
-    visit my_queue_path 
-
-    save_and_open_page
+    #finish spec 
   end
 
   def add_to_queue(video)
