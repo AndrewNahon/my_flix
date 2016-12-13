@@ -1,4 +1,4 @@
-require 'pry'
+
 
 class ResetPasswordsController < ApplicationController
   def new
